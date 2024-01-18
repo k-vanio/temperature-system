@@ -1,7 +1,7 @@
 package server
 
 import (
-	"log"
+	"fmt"
 	"net/http"
 
 	"github.com/k-vanio/temperature-system/internal/domain"
@@ -29,6 +29,6 @@ func (a *application) Run() error {
 
 	srv := &http.Server{Addr: a.Port, Handler: mux}
 
-	log.Printf("Server running on port %s", a.Port)
+	fmt.Printf("Server running on port %s", a.Port)
 	return srv.ListenAndServe()
 }
