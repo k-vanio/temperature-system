@@ -14,7 +14,7 @@ import (
 
 func main() {
 	// config
-	config := *config.New()
+	config := config.New()
 
 	// services
 	var clientHttp domain.HTTPClient = &http.Client{Timeout: 10 * time.Second}
