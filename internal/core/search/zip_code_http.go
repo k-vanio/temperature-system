@@ -91,7 +91,6 @@ func (z *zipCodeHttp) FindZipCode(zipCode string) (string, error) {
 }
 
 func (z *zipCodeHttp) FindWeather(locale string) (*WeatherResponse, error) {
-
 	urlWeather := fmt.Sprintf("http://api.weatherapi.com/v1/current.json?key=%s&q=%s", z.config.WeatherKey, url.QueryEscape(locale))
 	requestWeather, _ := http.NewRequest(http.MethodGet, urlWeather, nil)
 
