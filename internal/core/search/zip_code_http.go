@@ -16,7 +16,7 @@ import (
 
 type zipCodeHttp struct {
 	client domain.HTTPClient
-	config config.Config
+	config *config.Config
 }
 
 type WeatherResponse struct {
@@ -25,7 +25,7 @@ type WeatherResponse struct {
 	TempK float64 `json:"temp_k"`
 }
 
-func New(client domain.HTTPClient, config config.Config) *zipCodeHttp {
+func New(client domain.HTTPClient, config *config.Config) *zipCodeHttp {
 	return &zipCodeHttp{
 		client: client,
 		config: config,
@@ -91,7 +91,6 @@ func (z *zipCodeHttp) FindZipCode(zipCode string) (string, error) {
 }
 
 func (z *zipCodeHttp) FindWeather(locale string) (*WeatherResponse, error) {
-
 	urlWeather := fmt.Sprintf("http://api.weatherapi.com/v1/current.json?key=%s&q=%s", z.config.WeatherKey, url.QueryEscape(locale))
 	requestWeather, _ := http.NewRequest(http.MethodGet, urlWeather, nil)
 

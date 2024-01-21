@@ -19,5 +19,5 @@ func (a actionDefault) Path() string {
 }
 
 func (a actionDefault) Handle(w http.ResponseWriter, r *http.Request) {
-	w.Write([]byte("default"))
+	w.Write([]byte("access: /zip-code?zipCode=07987110"))
 }
