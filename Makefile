@@ -8,7 +8,7 @@ export
 dev-build: 
 	docker build -t $(IMAGE_DEV) -f Dockerfile.dev .
 
-dev-run: dev-build
+ : dev-build
 	docker run -p 8080:8080 -e WEATHER_KEY=$(WEATHER_KEY) -it --rm $(IMAGE_DEV)
 
 prod-build: 
@@ -22,3 +22,7 @@ test: dev-build
 
 cover: dev-build
 	docker run -it --rm $(IMAGE_DEV) go test -cover ./...
+
+deploy:
+	chmod +x ./deploy.sh
+	./deploy.sh
