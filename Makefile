@@ -8,7 +8,7 @@ export
 dev-build: 
 	docker build -t $(IMAGE_DEV) -f Dockerfile.dev .
 
- : dev-build
+dev-run: dev-build
 	docker run -p 8080:8080 -e WEATHER_KEY=$(WEATHER_KEY) -it --rm $(IMAGE_DEV)
 
 prod-build: 
