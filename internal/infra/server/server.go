@@ -29,6 +29,6 @@ func (a *application) Run() error {
 
 	srv := &http.Server{Addr: a.Port, Handler: mux}
 
-	fmt.Printf("Server running on port %s", a.Port)
+	fmt.Printf("Server running on port %s\n", a.Port)
 	return srv.ListenAndServe()
 }
