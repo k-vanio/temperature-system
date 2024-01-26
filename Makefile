@@ -9,7 +9,7 @@ dev-build:
 	docker build -t $(IMAGE_DEV) -f Dockerfile.dev .
 
 dev-run: dev-build
-	docker run -p 8080:8080 -e WEATHER_KEY=$(WEATHER_KEY) -it --rm $(IMAGE_DEV)
+	docker-compose build && docker-compose up
 
 prod-build: 
 	docker build -t $(IMAGE_PROD) -f Dockerfile.prod .
